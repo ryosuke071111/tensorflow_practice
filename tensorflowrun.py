@@ -22,21 +22,21 @@ with tf.Session() as sess:
   result = f.eval()
 
 # × 全ての変数を初期化するノードをグラフ内に作成
-init = tf.global_variables_initializer()
-with  tf.Session() as sees:
-  init.run()
-  result = f.eval()
+# init = tf.global_variables_initializer()
+# with  tf.Session() as sees:
+#   init.run()
+#   result = f.eval()
 
 # ○ withブロックなしでデフォルトでセッションを実行できる
-init = tf.global_variables_initializer()
-sess = tf.InteractiveSession()
-init.run()
-result = f.eval()
+# init = tf.global_variables_initializer()
+# sess = tf.InteractiveSession()
+# init.run()
+# result = f.eval()
 
 print(result)
 sess.close()
 
-reset_graph()
+# reset_graph()
 
 #作成したノードは自動的にデフォルトグラフになる
 x1 = tf.Variable(1)
@@ -55,12 +55,25 @@ y = x + 5
 z = x * 3
 
 # × wとxが二回読み込まれるので非効率
-with tf.Session() as sess:
-  print(y.eval())
-  print(z.eval())
+# with tf.Session() as sess:
+#   print(y.eval())
+#   print(z.eval())
 
 # ○ 一回の実行で両方を読ませる
-with tf.Session() as sees:
-  y_val, z_val = sess.run([y, z])
-  print(y_val)
-  print(z_val)
+# with tf.Session() as sees:
+#   y_val, z_val = sess.run([y, z])
+#   print(y_val)
+#   print(z_val)
+
+
+
+
+
+
+
+
+
+
+
+
+
