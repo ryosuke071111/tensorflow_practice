@@ -3,9 +3,11 @@ import tensorflow as tf
 
 reset_graph()
 
+
+## 通常のRNN
+
 n_inputs = 3
 n_neurons = 5
-
 X0 = tf.placeholder(tf.float32,[None, n_inputs])
 X1 = tf.placeholder(tf.float32, [None, n_inputs])
 Wx = tf.Variable(tf.random_normal(shape=[n_inputs, n_neurons], dtype=tf.float32))
@@ -19,9 +21,16 @@ Y1 = tf.tanh(tf.matmul(Y0, Wy) + tf.matmul(X1, Wx) + b)
 init = tf.global_variables_initializer()
 
 
+#TFの通常のRNN
+X0 = tf.placeholder(tf.float32,[None, n_inputs])
+X1 = tf.placeholder(tf.float32, [None, n_inputs])
 
-X0_batch = np.array([[0,1,2],[3,4,5],[6,7,8],[9,0,1]])
-X1_batch = np.array([[9,8,7],[0,0,0],[6,5,4],[3,2,1]])
+basic_cell = tf.contrib.rnn.BasicRNNCell(num_units=n_neurons)
+output_seqs, states = tf.contrib.rnn.static_rnn(basic_cell, [X0, X1], dtype=tf.float32)
+Y0, Y1 = output_seqs
+
+X0_batch = np.array([[0,1,2],[3,4,5],[6,7,8],[9,0,1]]) #t0
+X1_batch = np.array([[9,8,7],[0,0,0],[6,5,4],[3,2,1]]) #t1
 
 with tf.Session() as sess:
   init.run()
