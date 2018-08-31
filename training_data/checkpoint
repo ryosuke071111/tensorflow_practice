@@ -1,0 +1,2 @@
+model_checkpoint_path: "/Users/ryousuke/desktop/ml/tensorflow_practice/training_data/my_model_final.ckpt"
+all_model_checkpoint_paths: "/Users/ryousuke/desktop/ml/tensorflow_practice/training_data/my_model_final.ckpt"

@@ -18,5 +18,4 @@ theta = tf.matmul(tf.matmul(tf.matrix_inverse(tf.matmul(XT,X)), XT),Y)
 with tf.Session() as sees:
   theta_values = theta.eval()
 
-print(theta_values)
 
