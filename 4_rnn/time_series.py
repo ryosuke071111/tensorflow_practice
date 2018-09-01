@@ -62,8 +62,9 @@ with tf.Session() as sess:
   X_new = time_series(np.array(t_instance[:-1].reshape(-1, n_steps,n_inputs)))
   y_pred = sess.run(outputs, feed_dict={X:X_new})
 
-print(y_pred)
+print(X_new)
 
+print(y_pred)
 
 
 plt.title("testing the mopdel", fontsize=15)

@@ -4,6 +4,7 @@ from sklearn.datasets import fetch_california_housing
 import numpy as np
 import os
 import matplotlib.pyplot as plt
+from tensorflow.examples.tutorials.mnist import input_data
 
 #dataset
 scaler = StandardScaler()
