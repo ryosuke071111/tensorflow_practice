@@ -1,3 +1,4 @@
+
 import tensorflow as tf
 from sklearn.preprocessing import StandardScaler
 from sklearn.datasets import fetch_california_housing
